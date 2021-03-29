@@ -4,7 +4,7 @@ namespace Kenini\Repository;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Model;
-use Kenini\Repository\Contracts\RepositoryInterface;
+use Kenini\Repository\Users\RepositoryInterface;
 use Illuminate\Database\Query\Builder;
 
 /**

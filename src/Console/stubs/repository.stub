@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use Kenini\Repository\AbstractRepository;
-use App\Repositories\Contracts\DummyClassInterface;
+use App\Repositories\Users\DummyClassInterface;
 
 class DummyClass extends AbstractRepository implements DummyClassInterface
 {

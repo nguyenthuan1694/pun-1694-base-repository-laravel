@@ -1,6 +1,6 @@
 <?php
 
-namespace Kenini\Repository\Contracts;
+namespace Kenini\Repository\Users;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;

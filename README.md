@@ -42,7 +42,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use Kenini\Repository\AbstractRepository;
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\Users\UserRepositoryInterface;
 
 class UserRepository extends AbstractRepository implements UserRepositoryInterface
 {
@@ -69,7 +69,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepository;
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\Users\UserRepositoryInterface;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -107,7 +107,7 @@ In controller, You want find user by id use repository
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Repositories\Users\UserRepositoryInterface;
 
 class UserController extends Controller
 {
