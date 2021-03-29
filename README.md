@@ -1,24 +1,41 @@
-To get started with Base Repository, use Composer to add the package to your project's dependencies:
+## Documentation
 
-    composer require su-1294/base-repository-laravel
-Configuration
-Laravel 5.5+
+To get started with **Base Repository**, use Composer to add the package to your project's dependencies:
+
+```bash
+    composer require thuan-1694/base-repository-laravel
+```
+
+## Configuration
+
+### Laravel 5.5+
+
 Laravel uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
-Laravel < 5.5:
+### Laravel < 5.5:
+
 If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
 
+```php
 'providers' => [
     // Other service providers...
 
     Kenini\RepositoryServiceProvider::class,
 ],
-Basic Usage
-Next, you are ready to use repository. If you want create repository with Model corresponding(example:UserRepository), run commnand line
+```
+
+### Basic Usage
+
+Next, you are ready to use repository. If you want create repository with Model corresponding(example:UserRepository), run commnand line 
+
+```bash
 
 php artisan make:repostitory UserRepository -i
-When run this commnand, Packeage automatic generate two file in forder Repository: UserRepository and UserRepositoryInterface. UserRepository extends AbstractRepository so you can use method in AbstractRepository
+```
+When run this commnand, Packeage automatic generate two file in forder Repository: UserRepository and UserRepositoryInterface. 
+UserRepository extends AbstractRepository so you can use method in AbstractRepository
 
+```php
 <?php
 
 namespace App\Repositories;
@@ -43,8 +60,9 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         parent::__construct($model);
     }
 }
+```
 Register in AppServiceProvider
-
+```php
 <?php
 
 namespace App\Providers;
@@ -76,9 +94,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
     }
 }
-Retrieving User Details
+```
+
+
+#### Retrieving User Details
+
 In controller, You want find user by id use repository
 
+```php
 <?php
 
 namespace App\Http\Controllers\Auth;
@@ -106,8 +129,9 @@ class UserController extends Controller
         return response()->json($user);
     }
 }
+```
 All function in base repository
-
+```
     public function find(array $conditions = []);
     public function findOne(array $conditions);
     public function findById(int $id);
@@ -126,3 +150,4 @@ All function in base repository
     public function model();
     public function makeModel();
     public function resetModel();
+```
