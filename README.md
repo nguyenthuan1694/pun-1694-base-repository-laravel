@@ -8,11 +8,11 @@ To get started with **Base Repository**, use Composer to add the package to your
 
 ## Configuration
 
-### Laravel 5.5+
+### Laravel 6+
 
 Laravel uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
-### Laravel < 5.5:
+### Laravel < 6:
 
 If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
 
