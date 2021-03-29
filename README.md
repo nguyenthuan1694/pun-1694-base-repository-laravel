@@ -42,7 +42,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use Kenini\Repository\AbstractRepository;
-use App\Repositories\Users\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
 class BaseRepository extends AbstractRepository implements RepositoryInterface
 {

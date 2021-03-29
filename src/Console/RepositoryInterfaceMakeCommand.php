@@ -59,7 +59,7 @@ class RepositoryInterfaceMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories\Users';
+        return $rootNamespace.'\Repositories';
     }
 
     /**
