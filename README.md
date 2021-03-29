@@ -26,14 +26,14 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 
 ### Basic Usage
 
-Next, you are ready to use repository. If you want create repository with Model corresponding(example:UserRepository), run commnand line 
+Next, you are ready to use repository. If you want create repository with Model corresponding(example:BaseRepository), run commnand line 
 
 ```bash
 
-php artisan make:repostitory UserRepository -i
+php artisan make:repostitory BaseRepository -i
 ```
-When run this commnand, Packeage automatic generate two file in forder Repository: UserRepository and UserRepositoryInterface. 
-UserRepository extends AbstractRepository so you can use method in AbstractRepository
+When run this commnand, Packeage automatic generate two file in forder Repository: BaseRepository and RepositoryInterface. 
+BaseRepository extends AbstractRepository so you can use method in AbstractRepository
 
 ```php
 <?php
@@ -42,14 +42,14 @@ namespace App\Repositories;
 
 use App\Models\User;
 use Kenini\Repository\AbstractRepository;
-use App\Repositories\Users\UserRepositoryInterface;
+use App\Repositories\Users\RepositoryInterface;
 
-class UserRepository extends AbstractRepository implements UserRepositoryInterface
+class BaseRepository extends AbstractRepository implements RepositoryInterface
 {
     protected $model;
 
     /**
-     * UserRepository construct
+     * BaseRepository construct
      *
      * @param  mixed $model
      *
@@ -68,8 +68,8 @@ Register in AppServiceProvider
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\UserRepository;
-use App\Repositories\Users\UserRepositoryInterface;
+use App\Repositories\BaseRepository;
+use App\Repositories\Users\RepositoryInterface;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -91,7 +91,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(RepositoryInterface::class, BaseRepository::class);
     }
 }
 ```
@@ -107,24 +107,24 @@ In controller, You want find user by id use repository
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Users\UserRepositoryInterface;
+use App\Repositories\Users\RepositoryInterface;
 
 class UserController extends Controller
 {
     /**
-     * @var UserRepositoryInterface
+     * @var RepositoryInterface
      */
-    private $userRepository;
+    private $BaseRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository )
+    public function __construct(RepositoryInterface $BaseRepository )
     {
-        $this->userRepository = $userRepository;
+        $this->BaseRepository = $BaseRepository;
     }
 
     public function show($id) 
     {
 
-        $user = $this->userRepository->findById($id);
+        $user = $this->BaseRepository->findById($id);
 
         return response()->json($user);
     }

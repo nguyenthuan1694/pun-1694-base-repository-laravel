@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use Kenini\Repository\Users\RepositoryInterface;
+use Kenini\Repository\RepositoryInterface;
 
 interface DummyClass extends RepositoryInterface
 {
