@@ -69,7 +69,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\BaseRepository;
-use App\Repositories\Users\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -107,7 +107,7 @@ In controller, You want find user by id use repository
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Users\RepositoryInterface;
+use App\Repositories\RepositoryInterface;
 
 class UserController extends Controller
 {
